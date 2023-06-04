@@ -1,20 +1,34 @@
 <template>
-  <NavBar>
+  <NavBar :menu="menu" @menu-clicked="menuClicked">
     <h1>This is the content inside the navbar</h1>
 
-    <HelloUsers />
+    <HelloUsers v-if="menu==='users'"/>
+    <HelloWorld v-if="menu==='vue'" />
   </NavBar>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
 import HelloUsers from './components/HelloUsers.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'MyHome',
   components: {
     NavBar,
-    HelloUsers
+    HelloUsers,
+    HelloWorld
+  },
+  data(){
+    return {
+        menu : 'users'
+    }
+  },
+
+  methods: {
+    menuClicked(menu){
+        this.menu = menu;
+    }
   }
 }
 </script>

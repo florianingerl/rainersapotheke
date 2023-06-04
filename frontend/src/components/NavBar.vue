@@ -1,9 +1,9 @@
 <template>
     <div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
+  <a @click="menuClicked('users')">Users</a>
+  <a @click="menuClicked('vue')">Vue</a>
+  <a @click="menuClicked('clients')">Clients</a>
+  <a @click="menuClicked('contact')">Contact</a>
 </div>
 
 <div class="main">
@@ -16,7 +16,14 @@
 
 <script>
     export default {
-        name : 'NavBar'
+        name : 'NavBar',
+        props : ['menu'],
+        methods : {
+            menuClicked(menu){
+                this.$emit('menuClicked', menu);
+            }
+        }
+        
     }
 
 </script>
