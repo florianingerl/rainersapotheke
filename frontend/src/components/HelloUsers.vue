@@ -18,7 +18,7 @@
            <td>{{ user.nachname }} </td>
            <td> <button type="button" @click="deleteUser(user.id)">Delete me!</button> </td>
            <td> <button type="button" @click="deleteUser2(user.id)">Delete me 2!</button> </td>
-           <td> <button type="button" @click="deleteUser3(user.id)">Delete me 3!</button> </td>
+           <td> <button type="button" @click="deleteUser3(user)">Delete me 3!</button> </td>
         </tr>
      
     </tbody>
@@ -51,9 +51,24 @@ export default {
         fetch("http://localhost:3000/deleteUser2?id="+id).then( res => res.json() ).then (jsonData => this.allUsers = jsonData );
     },
 
-    deleteUser3(id){
-        console.log("The user with id " + id + " should be deleted in yet another way!");
-    },
+    deleteUser3(user){
+        console.log("The user with id " + user.id + " should be deleted in yet another way!");
+
+        var xhr = new XMLHttpRequest();
+var url = "http://localhost:3000/deleteUser3";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log("I now log the responseText\n");
+        console.log(json);
+        this.allUsers = json;
+    }
+};
+var data = JSON.stringify(user);
+xhr.send(data);
+    }
 
   },
 

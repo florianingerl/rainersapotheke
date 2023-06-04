@@ -54,6 +54,14 @@ app.get('/deleteUser2/', (req, res) => {
     });
 } ); 
 
+app.post('/deleteUser3/', (req, res) => {
+  let userToDelete = req.body;
+  console.log(userToDelete);
+  sqlite3db.deleteUser(userToDelete.id, (rows) => {
+    res.json(rows);
+  });
+} ); 
+
 
 
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));

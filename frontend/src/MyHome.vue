@@ -27,6 +27,7 @@ export default {
 
   methods: {
     menuClicked(menu){
+        console.log("The menu " + menu + " was clicked!");
         this.menu = menu;
     }
   }

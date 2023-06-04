@@ -1,9 +1,10 @@
 <template>
     <div class="sidenav">
-  <a @click="menuClicked('users')">Users</a>
-  <a @click="menuClicked('vue')">Vue</a>
-  <a @click="menuClicked('clients')">Clients</a>
-  <a @click="menuClicked('contact')">Contact</a>
+  <a class="active" @click="menuClicked('users')">Users</a>
+  <a :class="{ active: this.menu==='vue' }" @click="menuClicked('vue')">Vue</a>
+  <a :class="{ active: this.menu==='clients' }" @click="menuClicked('clients')">Clients</a>
+  <a :class="{ active: this.menu==='contact' }" @click="menuClicked('contact')">Contact</a>
+
 </div>
 
 <div class="main">
@@ -17,7 +18,11 @@
 <script>
     export default {
         name : 'NavBar',
-        props : ['menu'],
+        data(){
+            return {
+                menu : 'users'
+            };
+        },
         methods : {
             menuClicked(menu){
                 this.$emit('menuClicked', menu);
@@ -51,6 +56,11 @@
 
 .sidenav a:hover {
   color: #f1f1f1;
+}
+
+.active {
+    font-weight: bold;
+    color: white
 }
 
 .main {

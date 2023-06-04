@@ -9,4 +9,8 @@ create table users (
 insert into users
  (vorname, nachname)
  values ("Florian", "Ingerl"),
-        ("Hermann", "Ingerl");
+        ("Hermann", "Ingerl"),
+        ("Michael", "Ende"),
+        ("Marcel", "Pagnol"),
+        ("Robert", "Lewandowski"),
+        ("Thomas", "Mueller");
