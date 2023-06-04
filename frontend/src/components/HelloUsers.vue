@@ -25,10 +25,6 @@
   </table>
 </div>
 
-<div>
- {{ fetchedStuff }}
-</div>
-
 </template>
 
 <script>
@@ -37,8 +33,8 @@ export default {
   
   data(){
     return {
-        allUsers: [{id: 1, vorname: "Florian", nachname: "Ingerl"}, {id :2, vorname: "Michael", nachname: "Kogan" }],
-        fetchedStuff : "This is the fetched Stuff"
+        allUsers: [{id: 1, vorname: "Florian", nachname: "Ingerl"}, {id :2, vorname: "Michael", nachname: "Kogan" }]
+  
     };
   },
   methods: {

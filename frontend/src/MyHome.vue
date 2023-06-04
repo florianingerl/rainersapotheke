@@ -1,5 +1,5 @@
 <template>
-  <NavBar :menu="menu" @menu-clicked="menuClicked">
+  <NavBar @menu-clicked="menuClicked">
     <h1>This is the content inside the navbar</h1>
 
     <HelloUsers v-if="menu==='users'"/>

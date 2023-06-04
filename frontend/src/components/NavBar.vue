@@ -1,14 +1,15 @@
 <template>
     <div class="sidenav">
-  <a class="active" @click="menuClicked('users')">Users</a>
-  <a :class="{ active: this.menu==='vue' }" @click="menuClicked('vue')">Vue</a>
-  <a :class="{ active: this.menu==='clients' }" @click="menuClicked('clients')">Clients</a>
-  <a :class="{ active: this.menu==='contact' }" @click="menuClicked('contact')">Contact</a>
+  <a :class="{ activeMenu: this.menu==='users'}" @click="menuClicked('users')">Users</a>
+  <a :class="{ activeMenu: this.menu==='vue' }" @click="menuClicked('vue')">Vue</a>
+  <a :class="{ activeMenu: this.menu==='clients' }" @click="menuClicked('clients')">Clients</a>
+  <a :class="{ activeMenu: this.menu==='contact' }" @click="menuClicked('contact')">Contact</a>
 
 </div>
 
 <div class="main">
     <div class="container">
+    <p>Value of menu is {{ this.menu }} </p>
         <slot></slot> 
     </div>
 </div>
@@ -18,13 +19,15 @@
 <script>
     export default {
         name : 'NavBar',
+        emits : ['menuClicked'],
         data(){
             return {
-                menu : 'users'
+              menu : 'users'
             };
         },
         methods : {
             menuClicked(menu){
+                this.menu = menu;
                 this.$emit('menuClicked', menu);
             }
         }
@@ -58,7 +61,7 @@
   color: #f1f1f1;
 }
 
-.active {
+.sidenav a.activeMenu {
     font-weight: bold;
     color: white
 }
