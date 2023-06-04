@@ -20,14 +20,14 @@
     export default {
         name : 'NavBar',
         emits : ['menuClicked'],
+        props: ['menu'],
         data(){
             return {
-              menu : 'users'
+             
             };
         },
         methods : {
             menuClicked(menu){
-                this.menu = menu;
                 this.$emit('menuClicked', menu);
             }
         }
