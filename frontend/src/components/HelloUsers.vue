@@ -1,0 +1,69 @@
+<template>
+
+<div class="container mt-3">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Vorname</th>
+        <th>Nachname</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr v-for="user in allUsers" :key="user.id">
+           <td>{{ user.id }}</td>
+           <td>{{ user.vorname }} </td>
+           <td>{{ user.nachname }} </td>
+           <td> <button type="button" @click="deleteUser(user.id)">Delete me!</button> </td>
+           <td> <button type="button" @click="deleteUser2(user.id)">Delete me 2!</button> </td>
+           <td> <button type="button" @click="deleteUser3(user.id)">Delete me 3!</button> </td>
+        </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+<div>
+ {{ fetchedStuff }}
+</div>
+
+</template>
+
+<script>
+export default {
+  name: 'HelloUsers',
+  
+  data(){
+    return {
+        allUsers: [{id: 1, vorname: "Florian", nachname: "Ingerl"}, {id :2, vorname: "Michael", nachname: "Kogan" }],
+        fetchedStuff : "This is the fetched Stuff"
+    };
+  },
+  methods: {
+    deleteUser(id){
+        console.log("The user with id " + id + " should be deleted!");
+        fetch("http://localhost:3000/deleteUser/"+id+"/").then( res => res.json() ).then (jsonData => this.allUsers = jsonData );
+    },
+    deleteUser2(id){
+        console.log("The user with id " + id + " should be deleted in another way!");
+        fetch("http://localhost:3000/deleteUser2?id="+id).then( res => res.json() ).then (jsonData => this.allUsers = jsonData );
+    },
+
+    deleteUser3(id){
+        console.log("The user with id " + id + " should be deleted in yet another way!");
+    },
+
+  },
+
+  mounted(){
+    console.log("The component is mounted!");
+
+    // fetch("http://localhost:3000/").then( res => res.json() ).then( jsonData => this.allUsers = jsonData );
+     fetch("http://localhost:3000/").then( res => console.log( res ) );
+     fetch("http://localhost:3000/").then( res => res.json() ).then (jsonData => this.allUsers = jsonData );
+    
+  }
+}
+</script>
