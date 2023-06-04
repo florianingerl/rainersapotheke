@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const sum = require("testmodule.js");
+const sum = require("./my_modules/testmodule.js");
 
 var c = sum(5,6);
 
