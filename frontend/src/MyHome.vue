@@ -4,6 +4,7 @@
 
     <HelloUsers v-if="menu==='users'"/>
     <HelloWorld v-if="menu==='vue'" />
+    <AuditReports v-if="menu=='reports'" />
   </NavBar>
 </template>
 
@@ -11,13 +12,15 @@
 import NavBar from './components/NavBar.vue'
 import HelloUsers from './components/HelloUsers.vue'
 import HelloWorld from './components/HelloWorld.vue'
+import AuditReports from './components/AuditReports.vue'
 
 export default {
   name: 'MyHome',
   components: {
     NavBar,
     HelloUsers,
-    HelloWorld
+    HelloWorld,
+    AuditReports
   },
   data(){
     return {
