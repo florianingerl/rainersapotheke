@@ -19,3 +19,6 @@ Mit Strg+C killst du ein Programm, das du auf der Konsole gestartet hast
 Verstehe Vue.js
 https://vuejs.org/guide/essentials/lifecycle.html
 
+Anleitung für Git:
+https://www.w3schools.com/git/default.asp?remote=github
+
