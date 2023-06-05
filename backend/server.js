@@ -39,6 +39,14 @@ app.get('/', (req, res) => {
     });
 });
 
+
+app.get('/shownorms', (req, res) => {
+    sqlite3db.getAllNorms( (rows) => {
+        res.json(rows);
+    });
+});
+
+
 app.get('/deleteUser/:id', (req, res) => {
     
   // Retrieve the tag from our URL path

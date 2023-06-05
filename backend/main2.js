@@ -6,3 +6,10 @@ sqlite3db.getAllUsers( (rows)=> {
       console.log("Vorname:" + row.vorname + " Nachname:" + row.nachname );
     });
   });
+
+sqlite3db.getAllNorms( (rows)=> {
+    console.log("There are " + rows.length + " entries in the database table users!");
+    rows.forEach((row) => {
+      console.log("Id:" + row.id + " Beschreibung:" + row.beschreibung );
+    });
+  });

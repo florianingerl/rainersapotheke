@@ -20,6 +20,17 @@ var getAllUsers = function( callback ){
       });
 };
 
+var getAllNorms = function( callback ){
+    db.all("select * from norms", [], (err, rows) => {
+        if (err) {
+          throw err;
+        }
+        callback(rows)
+      });
+};
+
+
+
 var deleteUser = function(id, callback ){
     db.run("delete from users where id = " + id, [], (err) => {
         if(err){
@@ -31,5 +42,6 @@ var deleteUser = function(id, callback ){
 
 module.exports = {
     getAllUsers: getAllUsers,
-    deleteUser : deleteUser
+    deleteUser : deleteUser,
+    getAllNorms: getAllNorms
 };

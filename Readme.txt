@@ -11,3 +11,11 @@
 2.4) npm run serve
 2.5) open https://localhost:8080 in your browser
 
+Verstehe NodeJS Modules:
+https://o7planning.org/11935/nodejs
+
+Mit Strg+C killst du ein Programm, das du auf der Konsole gestartet hast
+
+Verstehe Vue.js
+https://vuejs.org/guide/essentials/lifecycle.html
+
