@@ -10,7 +10,7 @@
 
 <div class="main">
     <div class="container">
-    <p>Value of menu is {{ this.menu }} </p>
+    
         <slot></slot> 
     </div>
 </div>

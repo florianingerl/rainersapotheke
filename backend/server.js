@@ -1,6 +1,8 @@
 const express = require('express');
 const sqlite3db = require("./my_modules/sqlite3db.js");
 const bodyParser = require('body-parser');
+const pdfutils = require("./my_modules/pdfutils.js");
+const fs = require('fs');
 const url = require('url');
 const querystring = require('querystring');
 
@@ -62,6 +64,13 @@ app.post('/deleteUser3/', (req, res) => {
   });
 } ); 
 
+app.get('/getAllUsersInPdf/', (req, res) => {
+   pdfutils.writeUsersInPdf( pdfFilename => {
+    var data =fs.readFileSync('./' + pdfFilename );
+    res.contentType("application/pdf");
+    res.send(data);
+   });
+});
 
 
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));

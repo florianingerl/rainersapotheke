@@ -2,6 +2,9 @@
 node_modules
 /dist
 
+users.pdf
+users.tex
+
 
 # local env files
 .env.local

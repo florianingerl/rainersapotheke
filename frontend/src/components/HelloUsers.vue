@@ -1,8 +1,7 @@
 <template>
 
 <div class="container mt-3">
-  <h2>Basic Table</h2>
-  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
+ 
   <table class="table">
     <thead>
       <tr>
@@ -23,6 +22,8 @@
      
     </tbody>
   </table>
+
+  <a href="http://localhost:3000/getAllUsersInPdf" class="btn btn-primary">Get all the users as a pdf</a>
 </div>
 
 </template>
