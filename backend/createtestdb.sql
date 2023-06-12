@@ -25,7 +25,8 @@ create table normpunkte (
 
 insert into normpunkte 
     (norm_id, kapitel, unterkapitel, unterunterkapitel, beschreibung) values
-    ("GMP-Leitfade Teil I", 1, 1, NULL, "Der Pharmazeutische Unternehmer hat ein geeignetes Sicherheitssystem-System");
+    ("GMP-Leitfaden Teil I", 1, 1, NULL, "Der Pharmazeutische Unternehmer hat ein geeignetes Sicherheitssystem-System"),
+    ("GMP-Leitfaden Teil I", 2, 1, NULL, "Hier funktioniert alles!");
 
 create table users (
     id Integer PRIMARY KEY AUTOINCREMENT,

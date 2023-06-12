@@ -29,6 +29,15 @@ var getAllNorms = function( callback ){
       });
 };
 
+let getAllNormpunkteForNorm = function( norm_id, callback ){
+    db.all("select * from normpunkte where norm_id='" + norm_id + "'", [], (err, rows) => {
+        if (err) {
+          throw err;
+        }
+        callback(rows)
+      });
+};
+
 
 
 var deleteUser = function(id, callback ){
@@ -43,5 +52,6 @@ var deleteUser = function(id, callback ){
 module.exports = {
     getAllUsers: getAllUsers,
     deleteUser : deleteUser,
-    getAllNorms: getAllNorms
+    getAllNorms: getAllNorms,
+    getAllNormpunkteForNorm: getAllNormpunkteForNorm
 };

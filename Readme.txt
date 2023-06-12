@@ -22,3 +22,11 @@ https://vuejs.org/guide/essentials/lifecycle.html
 Anleitung für Git:
 https://www.w3schools.com/git/default.asp?remote=github
 
+Difference between var, const and let in JavaScript:
+https://www.freecodecamp.org/news/differences-between-var-let-const-javascript/#:~:text=If%20you%20never%20want%20a,is%20the%20keyword%20for%20you
+
+this in JavaScript
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this?retiredLocale=de
+
+Checkboxen:
+https://www.w3schools.com/tags/att_input_type_checkbox.asp

@@ -46,6 +46,15 @@ app.get('/shownorms', (req, res) => {
     });
 });
 
+app.get('/shownormpunkte/:norm_id', (req, res) => {
+    
+  // Retrieve the tag from our URL path
+  let norm_id = req.params.norm_id;
+  sqlite3db.getAllNormpunkteForNorm(norm_id, (rows) => {
+    res.json(rows);
+  });
+ 
+});
 
 app.get('/deleteUser/:id', (req, res) => {
     
@@ -56,6 +65,8 @@ app.get('/deleteUser/:id', (req, res) => {
   });
  
 });
+
+
 
 app.get('/deleteUser2/', (req, res) => {
     let id = req.query.id;
