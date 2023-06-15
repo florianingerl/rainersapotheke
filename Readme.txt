@@ -30,3 +30,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 Checkboxen:
 https://www.w3schools.com/tags/att_input_type_checkbox.asp
+
+SQLite3
+https://www.sqlitetutorial.net/

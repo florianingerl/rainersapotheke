@@ -83,6 +83,14 @@ app.post('/deleteUser3/', (req, res) => {
   });
 } ); 
 
+app.post('/insertnewnorm/', (req, res) => {
+  let normToInsert = req.body;
+  console.log(normToInsert);
+  sqlite3db.insertNewNorm(normToInsert, (rows) => {
+    res.json(rows);
+  });
+} );
+
 app.get('/getAllUsersInPdf/', (req, res) => {
    pdfutils.writeUsersInPdf( pdfFilename => {
     var data =fs.readFileSync('./' + pdfFilename );

@@ -1,6 +1,7 @@
 <template>
     <div class="sidenav">
   <a :class="{ activeMenu: this.menu==='reports'}" @click="menuClicked('reports')">Auditbericht</a>
+  <a :class="{ activeMenu: this.menu==='norms'}" @click="menuClicked('norms')">Normen</a>
   <a :class="{ activeMenu: this.menu==='users'}" @click="menuClicked('users')">Users</a>
   <a :class="{ activeMenu: this.menu==='vue' }" @click="menuClicked('vue')">Vue</a>
   <a :class="{ activeMenu: this.menu==='clients' }" @click="menuClicked('clients')">Clients</a>

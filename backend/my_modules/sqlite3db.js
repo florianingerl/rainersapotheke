@@ -9,7 +9,16 @@ var db = new sqlite3.Database('./test.db', sqlite3.OPEN_READWRITE, (err) => {
     }
 });
 
-
+var insertNewNorm = function( norm ,callback ){
+  db.run(`INSERT INTO norms(id, beschreibung) VALUES(?,?)`, [norm.id, norm.beschreibung], function(err) {
+    if (err) {
+      return console.log(err.message);
+    }
+    // get the last insert id
+    console.log(`A new norm was successfully inserted`);
+    getAllNorms(callback);
+  });
+};
 
 var getAllUsers = function( callback ){
     db.all("select * from users", [], (err, rows) => {
@@ -53,5 +62,6 @@ module.exports = {
     getAllUsers: getAllUsers,
     deleteUser : deleteUser,
     getAllNorms: getAllNorms,
-    getAllNormpunkteForNorm: getAllNormpunkteForNorm
+    getAllNormpunkteForNorm: getAllNormpunkteForNorm,
+    insertNewNorm : insertNewNorm
 };
