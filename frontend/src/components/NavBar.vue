@@ -1,5 +1,7 @@
 <template>
     <div class="sidenav">
+    <router-link to="auditreports" :class="{ activeMenu: this.menu==='reports'}">Auditbericht</router-link>
+     <router-link to="users" :class="{ activeMenu: this.menu==='users'}">Users</router-link>
   <a :class="{ activeMenu: this.menu==='reports'}" @click="menuClicked('reports')">Auditbericht</a>
   <a :class="{ activeMenu: this.menu==='norms'}" @click="menuClicked('norms')">Normen</a>
   <a :class="{ activeMenu: this.menu==='users'}" @click="menuClicked('users')">Users</a>

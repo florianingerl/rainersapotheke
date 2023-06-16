@@ -1,6 +1,6 @@
 <template>
   <NavBar :menu="this.menu" @menu-clicked="menuClicked">
-
+      <router-view></router-view>
     <HelloUsers v-if="menu==='users'"/>
     <HelloWorld v-if="menu==='vue'" />
     <AuditReports v-if="menu=='reports'" />
