@@ -1,40 +1,26 @@
 <template>
-  <NavBar :menu="this.menu" @menu-clicked="menuClicked">
-      <router-view></router-view>
-    <HelloUsers v-if="menu==='users'"/>
-    <HelloWorld v-if="menu==='vue'" />
-    <AuditReports v-if="menu=='reports'" />
-    <HelloNorms v-if="menu=='norms'" />
+  <NavBar>
+    <router-view></router-view>   
+
   </NavBar>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
-import HelloUsers from './components/HelloUsers.vue'
-import HelloWorld from './components/HelloWorld.vue'
-import AuditReports from './components/AuditReports.vue'
-import HelloNorms from './components/HelloNorms.vue'
 
 export default {
   name: 'MyHome',
   components: {
-    NavBar,
-    HelloUsers,
-    HelloWorld,
-    AuditReports,
-    HelloNorms
+    NavBar
   },
   data(){
     return {
-        menu : 'users'
+        
     }
   },
 
   methods: {
-    menuClicked(menu){
-        console.log("The menu " + menu + " was clicked!");
-        this.menu = menu;
-    }
+    
   }
 }
 </script>

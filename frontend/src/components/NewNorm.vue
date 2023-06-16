@@ -40,7 +40,9 @@ xhr.onreadystatechange = () => {
         var json = JSON.parse(xhr.responseText);
         console.log("I now log the responseText\n");
         console.log(json);
-        //this.allUsers = json;
+        alert("The new norm was successfully inserted!");
+
+        this.$router.push('/norms')
     }
 };
 var data = JSON.stringify(this.norm);

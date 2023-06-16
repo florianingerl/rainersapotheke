@@ -1,13 +1,9 @@
 <template>
     <div class="sidenav">
-    <router-link to="auditreports" :class="{ activeMenu: this.menu==='reports'}">Auditbericht</router-link>
-     <router-link to="users" :class="{ activeMenu: this.menu==='users'}">Users</router-link>
-  <a :class="{ activeMenu: this.menu==='reports'}" @click="menuClicked('reports')">Auditbericht</a>
-  <a :class="{ activeMenu: this.menu==='norms'}" @click="menuClicked('norms')">Normen</a>
-  <a :class="{ activeMenu: this.menu==='users'}" @click="menuClicked('users')">Users</a>
-  <a :class="{ activeMenu: this.menu==='vue' }" @click="menuClicked('vue')">Vue</a>
-  <a :class="{ activeMenu: this.menu==='clients' }" @click="menuClicked('clients')">Clients</a>
-  <a :class="{ activeMenu: this.menu==='contact' }" @click="menuClicked('contact')">Contact</a>
+    <router-link to="auditreports">Auditberichte</router-link>
+    <router-link to="users">Users</router-link>
+    <router-link to="norms">Normen</router-link>
+   
 
 </div>
 
@@ -23,17 +19,14 @@
 <script>
     export default {
         name : 'NavBar',
-        emits : ['menuClicked'],
-        props: ['menu'],
+        
         data(){
             return {
              
             };
         },
         methods : {
-            menuClicked(menu){
-                this.$emit('menuClicked', menu);
-            }
+           
         }
         
     }
@@ -65,7 +58,7 @@
   color: #f1f1f1;
 }
 
-.sidenav a.activeMenu {
+.sidenav a.router-link-active {
     font-weight: bold;
     color: white
 }
