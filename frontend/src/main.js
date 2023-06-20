@@ -7,9 +7,8 @@ import AuditReports from "./components/AuditReports.vue"
 import HelloUsers from "./components/HelloUsers.vue"
 import HelloNorms from "./components/HelloNorms.vue"
 import NewNorm from "./components/NewNorm.vue"
+import NewAuditReport from "./components/NewAuditReport.vue"
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const routes = [
     {
@@ -31,6 +30,10 @@ const routes = [
     {
         path: "/insertnewnorm",
         component: NewNorm
+    },
+    {
+        path: "/newauditreport",
+        component: NewAuditReport
     }
 
 ];

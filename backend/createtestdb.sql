@@ -34,7 +34,9 @@ insert into normpunkte
 
 create table auditreports (
     id Integer PRIMARY KEY AUTOINCREMENT,
-    author TEXT NOT NULL   
+    author TEXT NOT NULL,
+    name TEXT NOT NULL,
+    creation_date  TEXT NOT NULL  
 );
 
 create table users (

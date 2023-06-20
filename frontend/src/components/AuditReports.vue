@@ -1,23 +1,22 @@
 <template>
 
-<div class="button-box">
-<button type="button" class="col-4 mt-5 btn btn-primary" @click="this.newReportMode=false">Alle Auditberichte anzeigen</button>
-<button type="button" class="col-4 mt-5 btn btn-primary" @click="this.newReportMode=true">Neuen Auditbericht erstellen</button>
-</div>
-<NewReport v-if="newReportMode" />
+<h1>Auditberichte</h1>
+
+<router-link to="newauditreport" class="btn btn-primary">Neuen Auditbericht erstellen</router-link>
 
 </template>
 
 <script>
-import NewReport from './NewReport.vue';
 
 export default {
     name : 'AuditReports',
-    components : { NewReport },
     data(){
         return {
-            newReportMode : false
+            
         };
+    },
+    methods : {
+       
     }
 }
 

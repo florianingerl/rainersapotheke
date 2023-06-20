@@ -20,6 +20,23 @@ var insertNewNorm = function( norm ,callback ){
   });
 };
 
+var insertNewAuditReport = function( ar ,callback ){
+  const d = new Date();
+  db.run(`INSERT INTO auditreports (name, author, creation_date) VALUES(?,?,?)`, [ar.name, ar.author, d.toString() ], function(err) {
+    if (err) {
+      return console.log(err.message);
+    }
+    // get the last insert id
+    db.get("select max( id ) from auditreports", [], (err, row) => {
+      if (err) {
+        return console.log(err.message);
+      }
+      callback(row); 
+    });
+  });
+};
+
+
 var getAllUsers = function( callback ){
     db.all("select * from users", [], (err, rows) => {
         if (err) {
@@ -63,5 +80,7 @@ module.exports = {
     deleteUser : deleteUser,
     getAllNorms: getAllNorms,
     getAllNormpunkteForNorm: getAllNormpunkteForNorm,
-    insertNewNorm : insertNewNorm
+    insertNewNorm : insertNewNorm,
+    insertNewAuditReport : insertNewAuditReport 
+
 };
