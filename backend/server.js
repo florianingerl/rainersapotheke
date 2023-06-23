@@ -46,6 +46,13 @@ app.get('/shownorms', (req, res) => {
     });
 });
 
+
+app.get('/showauditreports', (req, res) => {
+    sqlite3db.getAllAuditReports( (rows) => {
+        res.json(rows);
+    });
+});
+
 app.get('/shownormpunkte/:norm_id', (req, res) => {
     
   // Retrieve the tag from our URL path
@@ -87,6 +94,14 @@ app.post('/insertnewnorm/', (req, res) => {
   let normToInsert = req.body;
   console.log(normToInsert);
   sqlite3db.insertNewNorm(normToInsert, (rows) => {
+    res.json(rows);
+  });
+} );
+
+app.post('/insertnewauditreport', (req, res) => {
+  let auditreportToInsert = req.body;
+  console.log(auditreportToInsert);
+  sqlite3db.insertNewAuditReport(auditreportToInsert, (rows) => {
     res.json(rows);
   });
 } );

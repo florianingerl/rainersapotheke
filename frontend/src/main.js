@@ -8,7 +8,7 @@ import HelloUsers from "./components/HelloUsers.vue"
 import HelloNorms from "./components/HelloNorms.vue"
 import NewNorm from "./components/NewNorm.vue"
 import NewAuditReport from "./components/NewAuditReport.vue"
-
+import EditAuditReport from "./components/EditReport.vue"
 
 const routes = [
     {
@@ -34,6 +34,10 @@ const routes = [
     {
         path: "/newauditreport",
         component: NewAuditReport
+    },
+    {
+        path: "/editauditreport/:id",
+        component: EditAuditReport
     }
 
 ];

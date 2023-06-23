@@ -33,6 +33,24 @@ export default {
         createNewAuditReportClicked(){
             console.log('The method was called.')
             console.log( this.newAuditReport );
+            var xhr = new XMLHttpRequest();
+var url = "http://localhost:3000/insertnewauditreport";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log("I now log the responseText\n");
+        console.log(json);
+        alert("The new auditreport was successfully inserted!");
+
+        this.$router.push('/auditreports')
+    }
+};
+var data = JSON.stringify(this.newAuditReport);
+xhr.send(data);
+
+
         }
 
     }

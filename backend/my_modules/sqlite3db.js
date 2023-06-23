@@ -27,7 +27,7 @@ var insertNewAuditReport = function( ar ,callback ){
       return console.log(err.message);
     }
     // get the last insert id
-    db.get("select max( id ) from auditreports", [], (err, row) => {
+    db.get("select max( id ) as id from auditreports", [], (err, row) => {
       if (err) {
         return console.log(err.message);
       }
@@ -65,6 +65,14 @@ let getAllNormpunkteForNorm = function( norm_id, callback ){
 };
 
 
+var getAllAuditReports = function( callback ){
+    db.all("select * from auditreports", [], (err, rows) => {
+        if (err) {
+          throw err;
+        }
+        callback(rows)
+      });
+};
 
 var deleteUser = function(id, callback ){
     db.run("delete from users where id = " + id, [], (err) => {
@@ -76,11 +84,12 @@ var deleteUser = function(id, callback ){
 };
 
 module.exports = {
-    getAllUsers: getAllUsers,
-    deleteUser : deleteUser,
-    getAllNorms: getAllNorms,
-    getAllNormpunkteForNorm: getAllNormpunkteForNorm,
-    insertNewNorm : insertNewNorm,
-    insertNewAuditReport : insertNewAuditReport 
+    getAllUsers,
+    deleteUser,
+    getAllNorms,
+    getAllNormpunkteForNorm,
+    insertNewNorm,
+    insertNewAuditReport,
+    getAllAuditReports 
 
 };
